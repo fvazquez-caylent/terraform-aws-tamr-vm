@@ -1,5 +1,5 @@
 locals {
-  az = data.aws_availability_zones.available.names[0
+  az = data.aws_availability_zones.available.names[0]
   tamr_vm_s3_actions = [
     "s3:PutObject",
     "s3:GetObject",
