@@ -15,6 +15,9 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | ami\_id | AMI to use for Tamr EC2 instance | `string` | n/a | yes |
+| egress\_protocol | Protocol for egress rules. If not icmp, icmpv6, tcp, udp, or all use the protocol number. | `string` | n/a | yes |
+| ingress\_protocol | Protocol for ingress rules. If not icmp, icmpv6, tcp, udp, or all use the protocol number. | `string` | n/a | yes |
+| key\_name | The key pair name. | `string` | n/a | yes |
 | name-prefix | A string to prepend to names of resources created by this example | `string` | n/a | yes |
 | tags | A map of tags to add to all resources created by this example. | `map(string)` | <pre>{<br>  "Author": "Tamr",<br>  "Environment": "Example"<br>}</pre> | no |
 
@@ -23,7 +26,6 @@ No requirements.
 | Name | Description |
 |------|-------------|
 | subnet\_id | n/a |
-| tamr\_key\_pair\_name | Name of EC2 key pair created for Tamr instance |
 | tamr\_private\_key | n/a |
 | tamr\_vm | n/a |
 | vpc\_id | n/a |
