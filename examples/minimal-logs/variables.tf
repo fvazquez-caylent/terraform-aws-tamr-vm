@@ -27,7 +27,6 @@ variable "egress_protocol" {
   description = "Protocol for egress rules. If not icmp, icmpv6, tcp, udp, or all use the protocol number."
 }
 
-
 variable "key_name" {
   type        = string
   description = "The key pair name."
