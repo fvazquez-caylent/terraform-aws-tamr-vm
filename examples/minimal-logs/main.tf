@@ -82,8 +82,7 @@ module "aws-sg" {
 }
 
 module "tamr-vm" {
-
-  source                      = "../.."
+  source = "git::git@github.com:Datatamer/terraform-aws-tamr-vm.git?ref=4.2.0"
   aws_role_name               = format("%s-tamr-ec2-role", var.name-prefix)
   aws_instance_profile_name   = format("%s-tamr-ec2-instance-profile", var.name-prefix)
   aws_emr_creator_policy_name = format("%sEmrCreatorPolicy", var.name-prefix)
@@ -94,10 +93,8 @@ module "tamr-vm" {
   instance_type     = "r5.2xlarge"
   key_name          = var.key_name
   availability_zone = local.az
-  ingress_protocol  = var.ingress_protocol
-  egress_protocol   = var.egress_protocol
-  vpc_id            = aws_vpc.tamr_vm_vpc.id
-  subnet_id         = aws_subnet.tamr_vm_subnet.id
+  vpc_id    = aws_vpc.tamr_vm_vpc.id
+  subnet_id = aws_subnet.tamr_vm_subnet.id
   bootstrap_scripts = [
 
     # NOTE: If you would like to use local scripts, you can use terraform's file() function
