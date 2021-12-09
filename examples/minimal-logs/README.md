@@ -8,7 +8,6 @@ No requirements.
 | Name | Version |
 |------|---------|
 | aws | n/a |
-| tls | n/a |
 
 ## Inputs
 
@@ -26,7 +25,6 @@ No requirements.
 | Name | Description |
 |------|-------------|
 | subnet\_id | n/a |
-| tamr\_private\_key | n/a |
 | tamr\_vm | n/a |
 | vpc\_id | n/a |
 
