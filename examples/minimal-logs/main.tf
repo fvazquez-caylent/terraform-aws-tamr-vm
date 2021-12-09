@@ -1,5 +1,5 @@
 locals {
-  az = "us-east-2a"
+  az = data.aws_availability_zones.available.names[0
   tamr_vm_s3_actions = [
     "s3:PutObject",
     "s3:GetObject",
@@ -10,6 +10,11 @@ locals {
     "s3:CreateJob",
     "s3:HeadBucket"
   ]
+}
+
+# Get available AZs
+data "aws_availability_zones" "available" {
+  state = "available"
 }
 
 # Get current Region
@@ -55,14 +60,6 @@ resource "tls_private_key" "tamr_ec2_private_key" {
   algorithm = "RSA"
 }
 
-module "tamr_ec2_key_pair" {
-  source     = "terraform-aws-modules/key-pair/aws"
-  version    = "1.0.0"
-  key_name   = format("%s-tamr-ec2-test-key", var.name-prefix)
-  public_key = tls_private_key.tamr_ec2_private_key.public_key_openssh
-  tags       = var.tags
-}
-
 module "aws-vm-sg-ports" {
   #source = "git::https://github.com/Datatamer/terraform-aws-tamr-vm.git//modules/aws-security-groups?ref=2.0.0"
   source = "../../modules/aws-security-groups"
@@ -95,7 +92,7 @@ module "tamr-vm" {
   ]
   ami               = var.ami_id
   instance_type     = "r5.2xlarge"
-  key_name          = module.tamr_ec2_key_pair.key_pair_key_name
+  key_name          = var.key_name
   availability_zone = local.az
   ingress_protocol  = var.ingress_protocol
   egress_protocol   = var.egress_protocol
