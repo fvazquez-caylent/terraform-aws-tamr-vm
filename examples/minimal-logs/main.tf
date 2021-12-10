@@ -82,7 +82,8 @@ module "aws-sg" {
 }
 
 module "tamr-vm" {
-  source                      = "git::git@github.com:Datatamer/terraform-aws-tamr-vm.git?ref=4.2.0"
+  #source                      = "git::git@github.com:Datatamer/terraform-aws-tamr-vm.git?ref=4.2.0"
+  source = "../../"
   aws_role_name               = format("%s-tamr-ec2-role", var.name-prefix)
   aws_instance_profile_name   = format("%s-tamr-ec2-instance-profile", var.name-prefix)
   aws_emr_creator_policy_name = format("%sEmrCreatorPolicy", var.name-prefix)
@@ -94,6 +95,8 @@ module "tamr-vm" {
   key_name          = var.key_name
   availability_zone = local.az
   vpc_id            = aws_vpc.tamr_vm_vpc.id
+  ingress_protocol = var.ingress_protocol
+  egress_protocol  = "all"
   subnet_id         = aws_subnet.tamr_vm_subnet.id
   bootstrap_scripts = [
 
@@ -105,12 +108,12 @@ module "tamr-vm" {
   tags               = var.tags
 }
 
-resource "aws_route_table" "example" {
+resource "aws_route_table" "tamr-vm-rt" {
   vpc_id = aws_vpc.tamr_vm_vpc.id
   tags   = var.tags
 }
 
-resource "aws_route_table_association" "a" {
+resource "aws_route_table_association" "tamr-vm-rt-asoc" {
   subnet_id      = aws_subnet.tamr_vm_subnet.id
   route_table_id = aws_route_table.example.id
 }
