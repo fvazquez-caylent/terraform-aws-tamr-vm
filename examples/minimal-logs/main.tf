@@ -56,9 +56,9 @@ module "s3-bucket" {
 }
 
 # Create new EC2 key pair
-#resource "tls_private_key" "tamr_ec2_private_key" {
-#  algorithm = "RSA"
-#}
+resource "tls_private_key" "tamr_ec2_private_key" {
+  algorithm = "RSA"
+}
 
 module "aws-vm-sg-ports" {
   #source = "git::https://github.com/Datatamer/terraform-aws-tamr-vm.git//modules/aws-security-groups?ref=2.0.0"
