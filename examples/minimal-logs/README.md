@@ -1,3 +1,10 @@
+# Cloudwatch log collection Example
+The following example will deploy the necessary resources to:
+- Download the Cloudwatch agent.
+- Install the Cloudwatch agent.
+- Create and mount the configuration file.
+- Enable the Cloudwatch agent.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
