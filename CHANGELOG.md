@@ -1,6 +1,6 @@
 # Tamr VM Terraform Module
 
-## v4.2.1 - December 9th 2021
+## v4.2.1 - December 13th 2021
 * Adds `ingress_protocol` and `egress_protocol`variable.
 * Adds `minimal-logs`example which allows the use of cloudwatch in an automated fashion.
 
