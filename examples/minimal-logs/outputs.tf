@@ -1,9 +1,5 @@
 output "vpc_id" {
-  value = aws_vpc.tamr_vm_vpc.id
-}
-
-output "subnet_id" {
-  value = aws_subnet.tamr_vm_subnet.id
+  value = module.vpc.vpc_id
 }
 
 output "tamr_private_key" {
@@ -13,4 +9,8 @@ output "tamr_private_key" {
 
 output "tamr_vm" {
   value = module.tamr-vm
+}
+
+output "application_subnet_id" {
+  value = module.vpc.application_subnet_id
 }
