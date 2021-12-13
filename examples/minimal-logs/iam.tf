@@ -8,4 +8,3 @@ resource "aws_iam_role_policy_attachment" "cw-agent-server-policy" {
   role       = module.tamr-vm.tamr_iam_role.tamr_instance_role_name
   policy_arn = data.aws_iam_policy.cw-agent-server-policy.arn
 }
-
