@@ -1,11 +1,15 @@
 # Tamr VM Terraform Module
 
+<<<<<<< HEAD
 
 ## v4.4.0 - December 20th 2021
 * Deprecates `s3_policy_arns` in favor of `additional_policy_arns`.
 * Permits the ability to create the cloudwatch log group and pass it to the shell script.
 
 ## v4.3.0 - December 17th 2021
+=======
+## v4.3.0 - December 16th 2021
+>>>>>>> 996810c9a6df159173a4b11968773b9da8201b24
 * Adds `minimal-logs`example which allows the use of cloudwatch in an automated fashion.
 
 ## v4.2.0 - August 20th 2021
