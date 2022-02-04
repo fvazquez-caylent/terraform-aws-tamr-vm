@@ -1,9 +1,5 @@
 locals {
-<<<<<<< HEAD
   effective_policy_arns = length(var.additional_policy_arns) > 0 ? var.additional_policy_arns : var.s3_policy_arns
-=======
-  effective_policy_arns = length(var.s3_policy_arns) > 0 ? var.s3_policy_arns : var.additional_policy_arns
->>>>>>> f637d0b6b1fb33268908e949fd9a65ee00b50d44
 }
 
 //working example for Tamr EMR account
