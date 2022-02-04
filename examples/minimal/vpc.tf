@@ -7,7 +7,15 @@ resource "aws_vpc" "tamr_vm_vpc" {
 resource "aws_subnet" "tamr_vm_subnet" {
   vpc_id            = aws_vpc.tamr_vm_vpc.id
   cidr_block        = "1.2.3.0/24"
+<<<<<<< HEAD
+<<<<<<< HEAD
+  availability_zone = local.az
+=======
   availability_zone = local.az[0]
+>>>>>>> feature/cloudwatch2
+=======
+  availability_zone = local.az[0]
+>>>>>>> 996810c9a6df159173a4b11968773b9da8201b24
   tags              = var.tags
 }
 
