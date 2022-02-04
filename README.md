@@ -53,7 +53,6 @@ No provider.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| additional\_policy\_arns | List of policy ARNs to be attached to Tamr VM IAM role. | `list(string)` | n/a | yes |
 | ami | The AMI to use for the EC2 instance | `string` | n/a | yes |
 | aws\_instance\_profile\_name | IAM Instance Profile to create | `string` | n/a | yes |
 | aws\_role\_name | IAM Role to create, and to which the policies will be attached | `string` | n/a | yes |
